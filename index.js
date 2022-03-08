@@ -78,9 +78,11 @@ app.post('/api/add/:type/', (req, res) => {
     case 'fruit': 
       fruit.push({"name" : req.body, "beauty" : randomNo(), "age" : randomNo() })
       res.send(fruit)
+      break
     case 'veg': 
       veg.push({"name" : req.body, "beauty" : randomNo(), "age" : randomNo() })
       res.send(veg)
+      break
     default: 
       res.send('Unrecognized type; please try again')
   }
