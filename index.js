@@ -1,8 +1,11 @@
 const express = require('express')
+const bp = require('body-parser')
 const app = express()
 
 const cors = require('cors')
 app.use(cors())
+app.use(bp.json())
+app.use(bp.urlencoded({ extended: true }))
 
 const randomNo = () => Math.floor( Math.random() * 10 )
 
@@ -73,7 +76,7 @@ app.get('/api/:type', (req, res) => {
 
 app.post('/api/add/:type/', (req, res) => {
   const type = req.params.type
-  console.log(req.body)
+  console.log(req)
   switch ( type ) {
     case 'fruit': 
       fruit.push({"name" : req.body, "beauty" : randomNo(), "age" : randomNo() })
