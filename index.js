@@ -76,14 +76,14 @@ app.get('/api/:type', (req, res) => {
 
 app.post('/api/add/:type/', (req, res) => {
   const type = req.params.type
-  console.log(req)
+  console.log(req.body)
   switch ( type ) {
     case 'fruit': 
-      fruit.push({"name" : req.body, "beauty" : randomNo(), "age" : randomNo() })
+      fruit.push({"name" : req.body.newName, "beauty" : randomNo(), "age" : randomNo() })
       res.send(fruit)
       break
     case 'veg': 
-      veg.push({"name" : req.body, "beauty" : randomNo(), "age" : randomNo() })
+      veg.push({"name" : req.body.newName, "beauty" : randomNo(), "age" : randomNo() })
       res.send(veg)
       break
     default: 
